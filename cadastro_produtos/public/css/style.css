@@ -1,0 +1,127 @@
+
+ /* */
+body {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+/* Style da barra de navegação do menu*/
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+ /* Style de Modelo para Container */
+.container-fluid {
+    padding: 0;
+}
+
+#modelo_container {
+    padding: 20px;
+}
+
+ /* Style da Mensagem de confirmação */
+.msg {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style para imagem do menu */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+/* Style para caixa pesquisa menu */
+#pesquisaMenu {
+    width: 50%;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Style para as opções do menu extendido(offCanvas) */
+#MenuOpcao {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#MenuOpcao li a {
+    font-size: 18px;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    display: block
+}
+
+#MenuOpcao li a:hover {
+    background-color: #eee;
+    color: blue;
+}
+
+/* Style Componentes */
+#componentPanel {
+    text-align: center;
+    background-color: blue;
+    color: white;
+}
+
+/* Style para listas e tabelas */
+#lista_container{
+    display: flex;
+}
+
+#tbodyLista button {
+    color: whitesmoke;
+}
+
+#tbodyLista a {
+    color: whitesmoke;
+}
+
+#tbodyLista button:hover {
+    color: blue;
+}
+
+#tbodyLista a:hover {
+    color: blue;
+}
+
+#modelo_container lista {
+    flex: 1 1 0;
+    max-width: 25%;
+    border-radius: 10px;
+    padding: 0;
+    margin: 5px;
+}
+
+
+
+
+/* Style do Rodapé */
+footer {
+    text-align: center;
+    background-color: skyblue;
+    color: whitesmoke;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p{
+    margin-bottom: 0;
+}
