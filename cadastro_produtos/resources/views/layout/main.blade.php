@@ -73,12 +73,22 @@
                     <p class="msg">{{ session('msg_alert') }}</p>
                 @endif
                 @yield('content')
+                <script>
+                    $(document).ready(function(){
+                        $("#inputPesquisa").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#tabelaPesquisa tr").filter(function() {
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                        });
+                    });
+                </script>
             </div>
         </div>
+        <!-- Script com função de pesquisa lista de tabelas -->
+
     </main>
 
-
-    <!-- Script com função de pesquisa lista de tabelas -->
     <footer>
         <p >José Carlos &copy; {{date('d/m/Y')}}</p>
     </footer>

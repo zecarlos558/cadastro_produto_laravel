@@ -1,22 +1,22 @@
 @extends('layout.main')
 @section('title')
-    Product
+    Tag
 @endsection
 
 @section('content')
     @component('components.title_center')
-        Cadastrar Produto
+        Cadastrar Tag
     @endcomponent
     <div class="container-fluid" id="modelo_container">
-        <h2>Preencha os dados do produto</h2>
-        <form action="{{ route('storeProduct') }}" method="POST">
+        <h2>Preencha os dados da Tag</h2>
+        <form action="{{ route('storeTag') }}" method="POST">
             @csrf
             @component('components.erros_request')@endcomponent
             <div class="mb-3 mt-3">
                 <label for="name">Nome:</label>
-                    <input type="text" class="form-control" value="{{ old('name')}}" name="name" id="name" placeholder="Nome do produto">
+                    <input type="text" class="form-control" value="{{ old('name')}}" name="name" id="name" placeholder="Nome da Tag">
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+            <button type="submit" class="btn btn-primary">Cadastrar Tag</button>
         </form>
     </div>
 @endsection

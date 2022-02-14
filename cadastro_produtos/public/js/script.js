@@ -1,3 +1,5 @@
+
+// Script com função de pesquisa lista do menu de opções
 function FuncaoPesquisaMenu() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("pesquisaMenu");
@@ -13,3 +15,14 @@ function FuncaoPesquisaMenu() {
         }
     }
 }
+
+// Função com pesquisa de objetos nas tabelas
+// Função Pesquisa Tabela (Não está funcionando através da importação)
+$(document).ready(function(){
+    $("#inputPesquisa").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#tabelaPesquisa tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });

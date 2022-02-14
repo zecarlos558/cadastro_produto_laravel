@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TagRequest;
+use App\Models\Tag;
 
 class TagController extends Controller
 {
@@ -13,7 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return view('tag.indexTag', ['tags' => $tags]);
     }
 
     /**
@@ -23,7 +26,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tag.createTag')->render();
     }
 
     /**
@@ -32,9 +35,15 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-        //
+        $request->validated();
+
+        $tag = new Tag();
+        $tag->name = $request->name;
+        $tag->save();
+
+        return redirect()->route('indexTag')->with('msg_alert','Tag salvo com sucesso!');
     }
 
     /**
@@ -45,7 +54,9 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+
+        return view('tag.showTag', ['tag' => $tag]);
     }
 
     /**
@@ -56,7 +67,9 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+
+        return view('tag.editTag',['tag' => $tag]);
     }
 
     /**
@@ -66,9 +79,12 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TagRequest $request, $id)
     {
-        //
+        $request->validated();
+
+        $data = $request->all();
+        Tag::findOrFail($id)->update($data);
     }
 
     /**
@@ -79,6 +95,8 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tag::findOrFail($id)->delete();
+
+        return redirect()->route('indexTag')->with('msg_alert','Tag deletado com sucesso!');
     }
 }

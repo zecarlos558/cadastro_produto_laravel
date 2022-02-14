@@ -1,16 +1,16 @@
 @extends('layout.main')
 @section('title')
-    Product
+    Tag
 @endsection
 
 @section('content')
     @component('components.title_center')
-        Listar Produto
+        Listar Tag
     @endcomponent
     <div class="container-fluid" id="modelo_container">
-        <h2>Listando os dados dos produtos</h2>
+        <h2>Listando os dados das Tags</h2>
         @component('components.center_search')
-            Pesquisar Produto
+            Pesquisar Tag
         @endcomponent
         <div id="lista_container" class="container-fluid">
             <table class="table table-striped table-hover">
@@ -22,14 +22,14 @@
                     </tr>
                 </thead>
                 <tbody id="tabelaPesquisa">
-                    @foreach ($produtos as $produto)
+                    @foreach ($tags as $tag)
                     {{-- <tr onclick="selecionaObjeto(this,'produto')"> --}}
                     <tr>
                         <th scope="row">{{($loop->index)+1}}</th>
-                        <td><a href="{{ route('showProduct', $produto->id) }}">{{$produto->name}}</a></td>
+                        <td><a href="{{ route('showTag', $tag->id) }}">{{$tag->name}}</a></td>
                         <td id="tbodyLista">
-                            <a class="btn btn-info edit-btn" href="{{ route('editProduct', $produto->id)}}" role="button"><ion-icon name="create"></ion-icon>Editar</a>
-                            <form action="{{ route('deleteProduct', $produto->id) }}" id="formButtons" method="POST">
+                            <a class="btn btn-info edit-btn" href="{{ route('editTag', $tag->id) }}" role="button"><ion-icon name="create"></ion-icon>Editar</a>
+                            <form action="{{ route('deleteTag', $tag->id) }}" id="formButtons" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash"></ion-icon>Deletar</button>
