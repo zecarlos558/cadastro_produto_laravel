@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\Tag;
 
 class ProductController extends Controller
 {
@@ -16,7 +17,15 @@ class ProductController extends Controller
     public function index()
     {
         $produtos = Product::all();
-        return view('product.indexProduct', ['produtos' => $produtos]);
+        $tagProdutos = array();
+        foreach ($produtos as $key => $produto) {
+            try {
+                $tagProdutos[$key] = $produto->tags[0]->name;
+            } catch (\Throwable $th) {
+                $tagProdutos[$key] = '';
+            }
+        }
+        return view('product.indexProduct', ['produtos' => $produtos,'tagProdutos' => $tagProdutos]);
     }
 
     /**
@@ -26,7 +35,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.createProduct')->render();
+        $tags = Tag::all();
+        return view('product.createProduct', ['tags' => $tags]);
     }
 
     /**
@@ -42,6 +52,8 @@ class ProductController extends Controller
         $produto = new Product();
         $produto->name = $request->name;
         $produto->save();
+        $tag = Tag::findOrFail($request->tag[0]);
+        $tag->products()->attach($produto->id);
 
         return redirect()->route('indexProduct')->with('msg_alert','Produto salvo com sucesso!');
     }
@@ -55,8 +67,12 @@ class ProductController extends Controller
     public function show($id)
     {
         $produto = Product::findOrFail($id);
-
-        return view('product.showProduct', ['produto' => $produto]);
+        try {
+            $tagProduto = $produto->tags[0]->name;
+        } catch (\Throwable $th) {
+            $tagProduto = '';
+        }
+        return view('product.showProduct', ['produto' => $produto,'tagProduto' => $tagProduto]);
     }
 
     /**
@@ -68,8 +84,14 @@ class ProductController extends Controller
     public function edit($id)
     {
         $produto = Product::findOrFail($id);
-
-        return view('product.editProduct',['produto' => $produto]);
+        try {
+            $tagProduto = $produto->tags[0]->id. '-'. $produto->tags[0]->name;
+        } catch (\Throwable $th) {
+            $tagProduto = '';
+        }
+        $tags = Tag::all();
+        return view('product.editProduct',['produto' => $produto,'tags' => $tags,
+                                            'tagProduto' => $tagProduto]);
     }
 
     /**
@@ -84,7 +106,19 @@ class ProductController extends Controller
         $request->validated();
 
         $data = $request->all();
+        $produto = Product::findOrFail($id);
+        $tag = Tag::findOrFail($request->tag[0]);
+        try {
+            $tag->products()->detach($produto->tags[0]->id);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+        $tag->products()->attach($produto->id);
+
         Product::findOrFail($id)->update($data);
+
+        return redirect()->route('indexProduct')->with('msg_alert','Produto atualizado com sucesso!');
     }
 
     /**
@@ -98,5 +132,13 @@ class ProductController extends Controller
         Product::findOrFail($id)->delete();
 
         return redirect()->route('indexProduct')->with('msg_alert','Produto deletado com sucesso!');
+    }
+
+    public function detachProduto($idProduto,$idTag)
+    {
+        $tag = Tag::findOrFail($idTag);
+        $tag->products()->detach($idProduto);
+
+        return redirect()->route('indexTag')->with('msg_alert','Produto desvinculado com sucesso!');
     }
 }

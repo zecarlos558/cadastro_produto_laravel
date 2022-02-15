@@ -18,6 +18,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
+                        <th scope="col">Total Produtos</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -27,6 +28,7 @@
                     <tr>
                         <th scope="row">{{($loop->index)+1}}</th>
                         <td><a href="{{ route('showTag', $tag->id) }}">{{$tag->name}}</a></td>
+                        <td><p>{{count($tag->products)}}</p></td>
                         <td id="tbodyLista">
                             <a class="btn btn-info edit-btn" href="{{ route('editTag', $tag->id) }}" role="button"><ion-icon name="create"></ion-icon>Editar</a>
                             <form action="{{ route('deleteTag', $tag->id) }}" id="formButtons" method="POST">

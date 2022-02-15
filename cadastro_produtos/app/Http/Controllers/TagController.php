@@ -55,8 +55,9 @@ class TagController extends Controller
     public function show($id)
     {
         $tag = Tag::findOrFail($id);
+        $produtos = $tag->products;
 
-        return view('tag.showTag', ['tag' => $tag]);
+        return view('tag.showTag', ['tag' => $tag, 'produtos' => $produtos]);
     }
 
     /**

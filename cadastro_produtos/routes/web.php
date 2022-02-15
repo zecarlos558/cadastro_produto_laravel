@@ -31,6 +31,7 @@ Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('edit
 Route::post('/product/store', [ProductController::class, 'store'])->name('storeProduct');
 Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('updateProduct');
 Route::delete('product/{id}', [ProductController::class, 'destroy'])->name('deleteProduct');
+Route::get('/product/destroy/{idProduto}/{idTag}', [ProductController::class, 'detachProduto'])->name('destroyProduct');
 
 // Rotas de Tags
 Route::get('/tag', [TagController::class, 'index'])->name('indexTag');
@@ -40,3 +41,5 @@ Route::get('/tag/edit/{id}', [TagController::class, 'edit'])->name('editTag');
 Route::post('/tag/store', [TagController::class, 'store'])->name('storeTag');
 Route::post('/tag/update/{id}', [TagController::class, 'update'])->name('updateTag');
 Route::delete('tag/{id}', [TagController::class, 'destroy'])->name('deleteTag');
+
+

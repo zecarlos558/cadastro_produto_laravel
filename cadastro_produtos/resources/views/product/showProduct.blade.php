@@ -15,6 +15,10 @@
                         <td class="tdShow">Nome:</td>
                         <td>{{$produto->name}}</td>
                     </tr>
+                    <tr>
+                        <td class="tdShow">Nome Tag:</td>
+                        <td>{{$tagProduto}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -15,14 +15,16 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required']
+            'name' => ['required'],
+            'tag' => ['required']
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Nome do Produto deve estar preenchido'
+            'name.required' => 'Nome do Produto deve estar preenchido',
+            'tag.required' => 'Tag deve estar selecionada'
         ];
     }
 }
