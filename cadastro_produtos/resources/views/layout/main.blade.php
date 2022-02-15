@@ -10,6 +10,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="/js/script.js" defer></script>
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -24,6 +25,34 @@
               <a href="/inicial" class="navbar-brand">
                 <img src="img/Logo_Promobit_Azul.png" alt="logomarca" height="75" width="150" >
               </a>
+              <div>
+                @auth
+                <ul class="navbar-nav navbar-right">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/dashboardUser"><ion-icon name="person"></ion-icon> Meu Painel </a>
+                  </li>
+                  <li class="nav-item">
+                    <form action="/logout" method="POST">
+                      @csrf
+                      <a
+                      href="/logout"
+                      class="nav-link"
+                      onclick="event.preventDefault();this.closest('form').submit();"><ion-icon name="log-out"></ion-icon> Logout </a>
+                    </form>
+                  </li>
+                </ul>
+                @endauth
+                @guest
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/register"><ion-icon name="person"></ion-icon> Sign Up </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login"><ion-icon name="log-in"></ion-icon> Login </a>
+                  </li>
+                </ul>
+                @endguest
+              </div>
               <!-- Botão de Expansão -->
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 <span class="navbar-toggler-icon"></span>
@@ -42,7 +71,7 @@
                           <a href="/inicial" class="nav-link">Pagina Inicial</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/relatorio">Relatórios</a>
+                          <a class="nav-link" href="{{ route('relatorio') }}">Relatórios</a>
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Produtos</a>

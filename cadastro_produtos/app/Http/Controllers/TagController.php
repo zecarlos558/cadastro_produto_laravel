@@ -100,4 +100,14 @@ class TagController extends Controller
 
         return redirect()->route('indexTag')->with('msg_alert','Tag deletado com sucesso!');
     }
+
+    public function relatorio()
+    {
+        $relatorioAnaliticos = Tag::relatorioAnalitico();
+        $relatorioSinteticos = Tag::relatorioSintetico();
+
+        return view('relatorio.indexRelatorio',['relatorioAnaliticos' => $relatorioAnaliticos,
+                                                'relatorioSinteticos' => $relatorioSinteticos]);
+    }
+
 }

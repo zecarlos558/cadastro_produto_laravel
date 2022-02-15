@@ -12,11 +12,11 @@ header {
     border-bottom: 1px solid #ccc;
 }
 
- /* Style de Modelo para Container */
+ /* Style de Modelo para Container
 .container-fluid {
-    padding: 0;
-}
 
+}
+*/
 #modelo_container {
     padding: 20px;
 }
@@ -97,6 +97,20 @@ img.displayed {
     text-align: center;
     background-color: blue;
     color: white;
+}
+
+/* Style Panel Relatorio */
+#componentPanelRelatorio {
+    text-align: center;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 5px;
+    padding-left: 0;
+    margin: 0 auto;
+    margin-bottom: 0;
+    margin-top: 20px;
+
+
 }
 
 /* Style para listas e tabelas */

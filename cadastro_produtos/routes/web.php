@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TagController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,33 +12,52 @@ use App\Http\Controllers\TagController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+
+
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect()->route('inicial');
 });
 
 Route::get('/inicial', function () {
     return view('inicial');
-});
+})->name('inicial');
 
 // Rotas de Products
-Route::get('/product', [ProductController::class, 'index'])->name('indexProduct');
-Route::get('/product/create', [ProductController::class, 'create'])->name('createProduct');//->middleware('auth')
-Route::get('/product/show/{id}', [ProductController::class, 'show'])->name('showProduct');
-Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('editProduct');
-Route::post('/product/store', [ProductController::class, 'store'])->name('storeProduct');
-Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('updateProduct');
-Route::delete('product/{id}', [ProductController::class, 'destroy'])->name('deleteProduct');
-Route::get('/product/destroy/{idProduto}/{idTag}', [ProductController::class, 'detachProduto'])->name('destroyProduct');
+Route::prefix('product')->middleware('auth')->group(function () {
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('/', 'index')->name('indexProduct');
+        Route::get('/create',  'create')->name('createProduct');
+        Route::get('/show/{id}',  'show')->name('showProduct');
+        Route::get('/edit/{id}',  'edit')->name('editProduct');
+        Route::post('/store',  'store')->name('storeProduct');
+        Route::post('/update/{id}',  'update')->name('updateProduct');
+        Route::delete('/{id}',  'destroy')->name('deleteProduct');
+        Route::get('/destroy/{idProduto}/{idTag}',  'detachProduto')->name('destroyProduct');
+    });
+});
+
 
 // Rotas de Tags
-Route::get('/tag', [TagController::class, 'index'])->name('indexTag');
-Route::get('/tag/create', [TagController::class, 'create'])->name('createTag');//->middleware('auth')
-Route::get('/tag/show/{id}', [TagController::class, 'show'])->name('showTag');
-Route::get('/tag/edit/{id}', [TagController::class, 'edit'])->name('editTag');
-Route::post('/tag/store', [TagController::class, 'store'])->name('storeTag');
-Route::post('/tag/update/{id}', [TagController::class, 'update'])->name('updateTag');
-Route::delete('tag/{id}', [TagController::class, 'destroy'])->name('deleteTag');
+Route::prefix('tag')->middleware('auth')->group(function () {
+    Route::controller(TagController::class)->group(function () {
+        Route::get('/',  'index')->name('indexTag');
+        Route::get('/create',  'create')->name('createTag');
+        Route::get('/show/{id}',  'show')->name('showTag');
+        Route::get('/edit/{id}',  'edit')->name('editTag');
+        Route::post('/store',  'store')->name('storeTag');
+        Route::post('/update/{id}',  'update')->name('updateTag');
+        Route::delete('/{id}',  'destroy')->name('deleteTag');
+        Route::get('/relatorio',  'relatorio')->name('relatorio');
+    });
+});
 
 
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
