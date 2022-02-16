@@ -21,77 +21,79 @@
 </head>
 <body>
     <header>
+
         <nav class="navbar navbar-inverse navbar-light bg-light">
             <div class="container-fluid" id="navbar">
-              <a href="{{ route('inicial') }}" class="navbar-brand">
-                <img src="img/Logo_Promobit_Azul.png" class="rounded" alt="logomarca" height="60" width="130" >
-              </a>
-              <div>
-                @auth
-                <ul class="navbar-nav navbar-right">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}"><ion-icon name="person"></ion-icon> Meu Painel </a>
-                  </li>
-                  <li class="nav-item">
-                    <form action="{{ route('logout') }}" method="POST">
-                      @csrf
-                      <a
-                      href="{{ route('logout') }}"
-                      class="nav-link"
-                      onclick="event.preventDefault();this.closest('form').submit();"><ion-icon name="log-out"></ion-icon> Logout </a>
-                    </form>
-                  </li>
-                </ul>
-                @endauth
-                @guest
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}"><ion-icon name="person"></ion-icon> Sign Up </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}"><ion-icon name="log-in"></ion-icon> Login </a>
-                  </li>
-                </ul>
-                @endguest
-              </div>
-              <!-- Botão de Expansão -->
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <!-- Início do Canvas -->
-              <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                  <h2 class="offcanvas-title" id="offcanvasExampleLabel">PROMOBIT</h2>
-                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <div class="navbar-header">
+                    <a href="{{ route('inicial') }}" class="navbar-brand">
+                        <img src="http://localhost:8000/img/Logo_Promobit_Azul.png" class="rounded" alt="logomarca" height="60" width="130" >
+                    </a>
                 </div>
-                <div class="offcanvas-body">
-                    <h5>Menu</h5>
-                    <input type="text" id="pesquisaMenu" onkeyup="FuncaoPesquisaMenu()" placeholder="Pesquisa menu..">
-                    <ul class="navbar-nav" id="MenuOpcao">
-                        <li class="nav-item">
-                          <a href="/inicial" class="nav-link">Pagina Inicial</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="{{ route('relatorio') }}">Relatórios</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Produtos</a>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('indexProduct') }}">Lista Produtos</a></li>
-                            <li><a class="dropdown-item" href="{{ route('createProduct') }}">Cadastrar Produtos</a></li>
-                          </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tags</a>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('indexTag') }}">Lista Tags</a></li>
-                            <li><a class="dropdown-item" href="{{ route('createTag') }}">Cadastrar Tags</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                  </div>
+
+                <!-- Botão de Expansão -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Início do Canvas -->
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                    <h2 class="offcanvas-title" id="offcanvasExampleLabel">PROMOBIT</h2>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <h5>Menu</h5>
+                        <input type="text" id="pesquisaMenu" onkeyup="FuncaoPesquisaMenu()" placeholder="Pesquisa menu..">
+                        <ul class="navbar-nav" id="MenuOpcao">
+                            <li class="nav-item">
+                                <a href="/inicial" class="nav-link">Pagina Inicial</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('relatorio') }}">Relatórios</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Produtos</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('indexProduct') }}">Lista Produtos</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('createProduct') }}">Cadastrar Produtos</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tags</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('indexTag') }}">Lista Tags</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('createTag') }}">Cadastrar Tags</a></li>
+                                </ul>
+                            </li>
+                            @auth
+                            <ul class="navbar-nav navbar-right">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('dashboard') }}"><ion-icon name="person-circle-sharp"></ion-icon> Meu Painel </a>
+                                </li>
+                                <li class="nav-item">
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <a
+                                        href="{{ route('logout') }}"
+                                        class="nav-link"
+                                        onclick="event.preventDefault();this.closest('form').submit();"><ion-icon name="log-out"></ion-icon> Deslogar </a>
+                                    </form>
+                                </li>
+                            </ul>
+                            @endauth
+                            @guest
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="{{ route('register') }}"><ion-icon name="person-add-sharp"></ion-icon> Inscrever-se </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('login') }}"><ion-icon name="log-in"></ion-icon> Logar </a>
+                                </li>
+                            </ul>
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
-              </div>
+
             </div>
         </nav>
     </header>

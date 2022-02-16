@@ -17,6 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $produtos = Product::all();
+        // Laço para capturar os valores das tags vinculada a cada produto
         $tagProdutos = array();
         foreach ($produtos as $key => $produto) {
             try {
@@ -67,6 +68,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $produto = Product::findOrFail($id);
+        // Verificar se possui tag vinculada ao produto e retorna valor
         try {
             $tagProduto = $produto->tags[0]->name;
         } catch (\Throwable $th) {
@@ -84,6 +86,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $produto = Product::findOrFail($id);
+        // Verificar se possui tag vinculada ao produto e retorna valor
         try {
             $tagProduto = $produto->tags[0]->id. '-'. $produto->tags[0]->name;
         } catch (\Throwable $th) {

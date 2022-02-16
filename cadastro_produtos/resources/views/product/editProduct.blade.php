@@ -30,7 +30,7 @@
                         </button>
                     </div>
                 <button type="submit" class="btn btn-primary">Editar Produto</button>
-                </form>
+            </form>
         </div>
     </div>
 @endsection

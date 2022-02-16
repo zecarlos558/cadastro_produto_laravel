@@ -9,11 +9,11 @@
     @endcomponent
     <div class="container-fluid" id="modelo_container">
         <div class="container px-lg-5">
-            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+            <div class="p-4 p-lg-5 bg-info rounded-3 text-center ">
                 <div class="m-4 m-lg-5">
                     <h1 class="display-5 fw-bold">Bem vindo!</h1>
                     <p class="fs-4">Este projeto foi feito com objetivo de testar e praticar os conhecimento e habilidades em desenvolvimento Back-End e Front-End</p>
-                    <a class="btn btn-primary btn-lg" href="#!">Sobre </a>
+                    {{-- <a class="btn btn-primary btn-lg" href="#!">Sobre </a> --}}
                 </div>
             </div>
         </div>

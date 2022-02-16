@@ -142,13 +142,12 @@ img.displayed {
     margin: 5px;
 }
 
-#login_container {
+#login_container lista {
     flex: 1 1 0;
     max-width: 25%;
     border-radius: 10px;
     padding: 0;
     margin: 5px;
-    border: 1px solid #ddd;
 }
 
 .table {
