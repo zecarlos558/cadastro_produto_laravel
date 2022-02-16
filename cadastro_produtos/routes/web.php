@@ -51,13 +51,16 @@ Route::prefix('tag')->middleware('auth')->group(function () {
         Route::post('/update/{id}',  'update')->name('updateTag');
         Route::delete('/{id}',  'destroy')->name('deleteTag');
         Route::get('/relatorio',  'relatorio')->name('relatorio');
+        Route::get('/gera_pdf',  'geraPDF')->name('geraPDF');
+        Route::get('/gera_sql',  'geraSQL')->name('geraSQL');
     });
 });
 
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user = auth()->user();
+    return view('dashboard', ['user' => $user]);
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

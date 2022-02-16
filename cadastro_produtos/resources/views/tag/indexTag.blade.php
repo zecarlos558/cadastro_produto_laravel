@@ -7,11 +7,15 @@
     @component('components.title_center')
         Listar Tag
     @endcomponent
+    @component('components.confirm_request')@endcomponent
     <div class="container-fluid" id="modelo_container">
         <h2>Listando os dados das Tags</h2>
         @component('components.center_search')
             Pesquisar Tag
         @endcomponent
+        <div class="d-flex justify-content mb-4">
+            <a class="btn btn-primary" href=" {{ route('createTag') }} ">Cadastrar Tag</a>
+        </div>
         <div id="lista_container" class="container-fluid">
             <table class="table table-striped table-hover">
                 <thead class="table-dark" >

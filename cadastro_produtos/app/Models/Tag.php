@@ -22,8 +22,8 @@ class Tag extends Model
     protected static function relatorioAnalitico()
     {
         return DB::table('product_tag')
-        ->join('products', 'product_tag.product_id', '=', 'products.id')
-        ->join('tags', 'product_tag.tag_id', '=', 'tags.id')
+        ->rightJoin('products', 'product_tag.product_id', '=', 'products.id')
+        ->rightJoin('tags', 'product_tag.tag_id', '=', 'tags.id')
         ->select(DB::raw('tags.id as idTag,tags.name as nomeTag,products.id as idProduto,products.name as nomeProduto'))
         /*
         ->whereIn('clientes.id', [$request->cliente[0]])
@@ -33,14 +33,14 @@ class Tag extends Model
         ->groupBy('tags.id','tags.name','products.id','products.name')
         ->orderBy('tags.name','asc')
         ->orderBy('products.name','asc')
-        ->get();
+        ;
     }
 
     protected static function relatorioSintetico()
     {
         return DB::table('product_tag')
-        ->join('products', 'product_tag.product_id', '=', 'products.id')
-        ->join('tags', 'product_tag.tag_id', '=', 'tags.id')
+        ->rightJoin('products', 'product_tag.product_id', '=', 'products.id')
+        ->rightJoin('tags', 'product_tag.tag_id', '=', 'tags.id')
         ->select(DB::raw('tags.id as idTag,tags.name as nomeTag, count( products.id ) as quantidadeProduto'))
         /*
         ->whereIn('clientes.id', [$request->cliente[0]])
@@ -49,6 +49,6 @@ class Tag extends Model
         */
         ->groupBy('tags.id','tags.name')
         ->orderBy('tags.name','asc')
-        ->get();
+        ;
     }
 }
