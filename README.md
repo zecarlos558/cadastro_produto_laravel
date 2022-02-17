@@ -77,8 +77,13 @@ order by `tags`.`name` asc, `products`.`name` asc
         DB_USERNAME=root
         DB_PASSWORD=
         ```
+  - Abra o terminal na pasta do projeto e digite o comando para criar as tabelas no banco
 
-  - Abra o terminal na pasta do projeto e digite
+      - ```less
+        php artisan migrate
+        ```
+
+  - Abra o terminal na pasta do projeto e digite o comando para iniciar o servidor
 
       - ```less
         php artisan serve
