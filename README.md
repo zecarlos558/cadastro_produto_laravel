@@ -1,8 +1,3 @@
----
-
-typora-root-url: doc
----
-
 # Desafio Promobit - Modelo de cadastro de Produto e Tags
 
 
