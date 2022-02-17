@@ -10,7 +10,7 @@
   * [Script Relatório](#Script-Relatório)
 * [Tecnologias](#Tecnologias)
   * [Instalar e utilizar](#Como-instalar-e-utilizar)
-* [Endpoints](#Endpoints)
+* [Endpoints](#Endpoints-e-Telas)
 * [Agradecimentos](#Agradecimentos)
 
 ## O Projeto
@@ -35,7 +35,7 @@ O sistema consiste nas funcionalidades de CRUD para Produtos, Tag e geração de
 
 Apresentação do Diagrama de Entidade Relacionamento desenvolvido no projeto.
 
-![Diagrama do Banco de Dados](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/Diagrama_do_Banco_de_Dados.png)
+![Diagrama do Banco de Dados](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/Diagrama_do_Banco_de_Dados.png)
 
 ### Script Relatório
 
@@ -104,7 +104,7 @@ Tela de apresentação, possui acesso as principais funcionalidades do sistema e
 http://127.0.0.1:8080/inicial
 ```
 
-![HOME](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/pagina_inicial.png)
+![HOME](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/pagina_inicial.png)
 
 ##### Login
 
@@ -114,7 +114,7 @@ Tela para realizar login do usuário
 http://127.0.0.1:8080/login
 ```
 
-![Login](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/login.png)
+![Login](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/login.png)
 
 ##### Cadastrar Usuário
 
@@ -124,7 +124,7 @@ Tela para cadastrar usuário
 http://127.0.0.1:8080/register
 ```
 
-![Register](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/register.png)
+![Register](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/register.png)
 
 ##### Produtos - CREATE
 
@@ -134,7 +134,7 @@ Tela para cadastro de produtos
 http://127.0.0.1:8080/product/create
 ```
 
-![Produtos - CREATE](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/produto_cadastrar.png)
+![Produtos - CREATE](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/produto_cadastrar.png)
 
 ##### Produtos - READ
 
@@ -144,7 +144,7 @@ Lista o produtos cadastrados com as opções de cadastrar, editar e deletar prod
 http://127.0.0.1:8080/product/
 ```
 
-![Produtos - READ](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/produto_listar.png)
+![Produtos - READ](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/produto_listar.png)
 
 ##### Produtos - UPDATE
 
@@ -154,7 +154,7 @@ Tela para editar dados do produtos
 http://127.0.0.1:8080/product/edit/{id}
 ```
 
-![Produtos - UPDATE](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/produto_editar.png)
+![Produtos - UPDATE](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/produto_editar.png)
 
 ##### Produtos - DELETE
 
@@ -172,7 +172,7 @@ Tela para cadastro de Tag
 http://127.0.0.1:8080/tag/create
 ```
 
-![Tag - CREATE](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/tag_cadastrar.png)
+![Tag - CREATE](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/tag_cadastrar.png)
 
 ##### Tag - READ
 
@@ -182,7 +182,7 @@ Lista as Tags cadastradas com as opções de cadastrar, editar e deletar Tag
 http://127.0.0.1:8080/tag/
 ```
 
-![Tag - READ](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/tag_listar.png)
+![Tag - READ](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/tag_listar.png)
 
 ##### Tag - UPDATE
 
@@ -192,7 +192,7 @@ Tela para editar dados da Tag
 http://127.0.0.1:8080/tag/edit/{id}
 ```
 
-![Tag - UPDATE](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/tag_editar.png)
+![Tag - UPDATE](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/tag_editar.png)
 
 ##### Tag - DELETE
 
@@ -210,7 +210,7 @@ Tela para exibir relatório dentro do sistema
 http://127.0.0.1:8080/relatorio
 ```
 
-![Relatório - Sistema](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/relatorio_site.png)
+![Relatório - Sistema](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/relatorio_site.png)
 
 ##### Relatório Tag - gera_pdf
 
@@ -220,7 +220,7 @@ Tela para exibir relatório como página para impressão ou PDF
 http://127.0.0.1:8080/tag/gera_pdf
 ```
 
-![Relatório - PDF](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/relatorio_pdf.png)
+![Relatório - PDF](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/relatorio_pdf.png)
 
 ##### Relatório Tag - gera_sql
 
@@ -230,10 +230,10 @@ Tela para exibir script sql da consulta do relatório
 http://127.0.0.1:8080/tag/gera_sql
 ```
 
-##### ![Relatório - SQL](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/relatorio_script.png)
+##### ![Relatório - SQL](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/screenshots/relatorio_script.png)
 
 
 
 ## Agradecimentos
 
-![Promobit](https://github.com/zecarlos558/modelo_cadastro_produto/tree/main/doc/screenshots/Logo_Promobit_Azul.png)
+![Promobit](https://raw.githubusercontent.com/zecarlos558/modelo_cadastro_produto/main/doc/Logo_Promobit_Azul.png)
