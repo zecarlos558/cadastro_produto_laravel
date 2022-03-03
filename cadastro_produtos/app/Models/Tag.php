@@ -25,11 +25,6 @@ class Tag extends Model
         ->rightJoin('products', 'product_tag.product_id', '=', 'products.id')
         ->rightJoin('tags', 'product_tag.tag_id', '=', 'tags.id')
         ->select(DB::raw('tags.id as idTag,tags.name as nomeTag,products.id as idProduto,products.name as nomeProduto'))
-        /*
-        ->whereIn('clientes.id', [$request->cliente[0]])
-        ->whereIn('plano_pagamentos.id', [$request->plano])
-        ->whereBetween('dataVenda', [$request->dataInicio, $request->dataFim])
-        */
         ->groupBy('tags.id','tags.name','products.id','products.name')
         ->orderBy('tags.name','asc')
         ->orderBy('products.name','asc')
@@ -42,11 +37,6 @@ class Tag extends Model
         ->rightJoin('products', 'product_tag.product_id', '=', 'products.id')
         ->rightJoin('tags', 'product_tag.tag_id', '=', 'tags.id')
         ->select(DB::raw('tags.id as idTag,tags.name as nomeTag, count( products.id ) as quantidadeProduto'))
-        /*
-        ->whereIn('clientes.id', [$request->cliente[0]])
-        ->whereIn('plano_pagamentos.id', [$request->plano])
-        ->whereBetween('dataVenda', [$request->dataInicio, $request->dataFim])
-        */
         ->groupBy('tags.id','tags.name')
         ->orderBy('tags.name','asc')
         ;
